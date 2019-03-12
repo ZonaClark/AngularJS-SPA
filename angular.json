@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-SPA": {
+    "to-do-list": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-SPA",
+            "outputPath": "dist/to-do-list",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -58,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-SPA:build"
+            "browserTarget": "to-do-list:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-SPA:build:production"
+              "browserTarget": "to-do-list:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-SPA:build"
+            "browserTarget": "to-do-list:build"
           }
         },
         "test": {
@@ -103,7 +103,7 @@
         }
       }
     },
-    "angular-SPA-e2e": {
+    "to-do-list-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -112,11 +112,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-SPA:serve"
+            "devServerTarget": "to-do-list:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-SPA:serve:production"
+              "devServerTarget": "to-do-list:serve:production"
             }
           }
         },
@@ -132,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "angular-SPA"
+  "defaultProject": "to-do-list"
 }

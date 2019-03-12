@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-SPA';
-  rootName = 'Zona';
-
-  onNameChanged(newName) {
-    this.rootName = newName;
-  }
+  title = 'to-do-list';
 }
