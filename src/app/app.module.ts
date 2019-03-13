@@ -7,13 +7,15 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ItemComponent } from './item/item.component';
 import { TodosService } from './todos.service';
 import { LogService } from './log.service';
+import { CreateTodoComponent } from './create-todo/create-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     TabsComponent,
-    ItemComponent
+    ItemComponent,
+    CreateTodoComponent
   ],
   imports: [
     BrowserModule
