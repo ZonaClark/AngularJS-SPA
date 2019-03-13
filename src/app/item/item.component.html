@@ -4,8 +4,8 @@
         <h5 class="mb-1">{{ todoItem.todo }}</h5>
       </div>
       <div>
-        <button class="btn btn-primary">Work</button>
-        <button class="btn btn-danger">Personal</button>
+        <button class="btn btn-primary" (click)="onAssign('work')">Work</button>
+        <button class="btn btn-danger" (click)="onAssign('personal')">Personal</button>
       </div>
     </a>
   </div>

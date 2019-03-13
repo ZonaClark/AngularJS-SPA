@@ -29,4 +29,11 @@ export class TabsComponent implements OnInit {
       return todo.category === this.choosenCategory;
     });
   }
+
+  onSideChosen(todoInfo) {
+    const pos = this.todos.findIndex((todo) => {
+      return todo.todo === todoInfo.todo;
+    });
+    this.todos[pos].category = todoInfo.category;
+  }
 }

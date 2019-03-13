@@ -1,3 +1,7 @@
 <div class="list-group">
-  <app-item *ngFor="let todo of todos" [todoItem]="todo"></app-item>
+  <app-item
+    *ngFor="let todo of todos"
+    [todoItem]="todo"
+    (sideAssigned)="onSideAssigned($event)"
+  ></app-item>
 </div>
