@@ -1,0 +1,14 @@
+<div>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a (click)="onClick('all')" style="cursor: pointer" class="nav-link">All</a>
+      </li>
+      <li class="nav-item">
+        <a (click)="onClick('work')" style="cursor: pointer" class="nav-link">Work</a>
+      </li>
+      <li class="nav-item">
+        <a (click)="onClick('personal')" style="cursor: pointer" class="nav-link">Personal</a>
+      </li>
+    </ul>
+    <app-list [todos]="getTodos()"></app-list>
+  </div>
