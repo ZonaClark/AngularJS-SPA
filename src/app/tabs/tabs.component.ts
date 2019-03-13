@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { TodosService } from '../todos.service';
 
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.css']
+  styleUrls: ['./tabs.component.css'],
 })
 export class TabsComponent implements OnInit {
-  todos = [
-    { todo: 'learn Angular', category: '' },
-    { todo: 'do laundry', category: '' }
-  ];
+  todos = [];
   choosenCategory = 'all';
+  tdService: TodosService;
 
-  constructor() { }
+  constructor(tdService: TodosService) {
+    this.tdService = tdService;
+  }
 
   ngOnInit() {
   }
@@ -22,18 +23,8 @@ export class TabsComponent implements OnInit {
   }
 
   getTodos() {
-    if (this.choosenCategory === 'all') {
-      return this.todos.slice();
-    }
-    return this.todos.filter((todo) => {
-      return todo.category === this.choosenCategory;
-    });
+    this.todos = this.tdService.getTodos(this.choosenCategory);
+    return this.todos;
   }
 
-  onSideChosen(todoInfo) {
-    const pos = this.todos.findIndex((todo) => {
-      return todo.todo === todoInfo.todo;
-    });
-    this.todos[pos].category = todoInfo.category;
-  }
 }

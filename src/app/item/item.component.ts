@@ -1,20 +1,23 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TodosService } from '../todos.service';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  styleUrls: ['./item.component.css'],
 })
 export class ItemComponent implements OnInit {
   @Input() todoItem;
-  @Output() sideAssigned = new EventEmitter<{todo: string, category: string}>();
+  tdService: TodosService;
 
-  constructor() { }
+  constructor(tdService: TodosService) {
+    this.tdService = tdService;
+  }
 
   ngOnInit() {
   }
 
   onAssign(itemCategory) {
-    this.sideAssigned.emit({todo: this.todoItem.todo, category: itemCategory});
+    this.tdService.onSideChosen({ todo: this.todoItem.todo, category: itemCategory });
   }
 }
