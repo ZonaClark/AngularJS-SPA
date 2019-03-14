@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LogService } from './log.service';
-import { Logs } from 'selenium-webdriver';
+import { Subject } from 'rxjs/Subject';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class TodosService {
@@ -9,9 +10,16 @@ export class TodosService {
     { todo: 'do laundry', category: '' }
   ];
   private logService: LogService;
+  todosChanged = new Subject<void>();
+  http: Http;
 
-  constructor(logService: LogService) {
+  constructor(logService: LogService, http: Http) {
     this.logService = logService;
+    this.http = http;
+  }
+
+  fetchTodos() {
+
   }
 
   getTodos(choosenCategory) {
@@ -28,6 +36,7 @@ export class TodosService {
       return todo.todo === todoInfo.todo;
     });
     this.todos[pos].category = todoInfo.category;
+    this.todosChanged.next();
     this.logService.writeLog(todoInfo.category);
   }
 

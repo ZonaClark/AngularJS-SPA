@@ -1,14 +1,15 @@
 <div>
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a (click)="onClick('all')" style="cursor: pointer" class="nav-link" [ngClass]="{active: choosenCategory === 'all'}">All</a>
+        <a class="nav-link" routerLink="/todos/all" routerLinkActive="active">All</a>
       </li>
-      <li class="nav-item">
-        <a (click)="onClick('work')" style="cursor: pointer" class="nav-link" [ngClass]="{active: choosenCategory === 'work'}">Work</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/todos/work">Work</a>
       </li>
-      <li class="nav-item">
-        <a (click)="onClick('personal')" style="cursor: pointer" class="nav-link" [ngClass]="{active: choosenCategory === 'personal'}">Personal</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/todos/personal">Personal</a>
       </li>
     </ul>
-    <app-list [todos]="getTodos()" (sideAssigned)="onSideChosen($event)"></app-list>
+    <!-- <app-list [todos]="getTodos()" (sideAssigned)="onSideChosen($event)"></app-list> -->
+    <router-outlet></router-outlet>
   </div>
