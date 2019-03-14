@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LogService } from './log.service';
 import { Subject } from 'rxjs/Subject';
-import { Http } from '@angular/http';
 
 @Injectable()
 export class TodosService {
@@ -11,15 +10,9 @@ export class TodosService {
   ];
   private logService: LogService;
   todosChanged = new Subject<void>();
-  http: Http;
 
-  constructor(logService: LogService, http: Http) {
+  constructor(logService: LogService) {
     this.logService = logService;
-    this.http = http;
-  }
-
-  fetchTodos() {
-
   }
 
   getTodos(choosenCategory) {
