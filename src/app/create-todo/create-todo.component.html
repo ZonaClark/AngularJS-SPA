@@ -1,15 +1,24 @@
-<form>
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
   <div class="form-group">
     <label for="name">Todo:</label>
-    <input type="text" id="name" name="name" class="form-control">
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      ngModel
+      required
+      #nameCtrl="ngModel"
+    >
+    <span class="form-text text-muted" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a todo.</span>
   </div>
   <div class="form-group">
     <label for="category">Choose Category:</label>
-    <select name="category" id="category" class="form-control">
+    <select name="category" id="category" class="form-control" ngModel>
       <option *ngFor="let option of availableCategory" [value]="option.value">
         {{ option.display }}
       </option>
     </select>
   </div>
-  <button class="btn btn-primary">Add Todo</button>
+  <button class="btn btn-primary" [disabled]="form.invalid">Add Todo</button>
 </form>

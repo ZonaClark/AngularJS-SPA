@@ -29,6 +29,16 @@ export class TodosService {
     });
     this.todos[pos].category = todoInfo.category;
     this.logService.writeLog(todoInfo.category);
+  }
 
+  addTodo(name, todoCategory) {
+    const pos = this.todos.findIndex((todo) => {
+      return todo.todo === name;
+    })
+    if (pos !== -1) {
+      return;
+    }
+    const newTodo = {todo: name, category: todoCategory};
+    this.todos.push(newTodo);
   }
 }
